@@ -158,6 +158,9 @@ void mousePressed( ){
     else if(pause == 1 && mouseX > 300 && mouseX < 400 && mouseY > 450 && mouseY < 500){
       newGame();
     }
+    else if(pause == 1 && mouseX > 300 && mouseX < 400 && mouseY > 550 && mouseY < 600){
+      exit();
+    }
     else{
       if(pause == 0){
         bulletX.append(x+43);
@@ -212,7 +215,7 @@ void gamePage(){
   else if(treasureShow == 2){
     image(treasure,treasureX,treasureY,100,100);
   }
-  if(bgy % enemyTime == 0){
+  if(bgy % enemyTime == 0 && pause == 0){
     enemyX.append(floor(random(630)));
     enemyKind.append(floor(random(2)));
     enemyY.append(-50);
@@ -273,9 +276,11 @@ void gamePage(){
     fill(200);
     rect(300,350,100,50);
     rect(300,450,100,50);
+    rect(300,550,100,50);
     fill(0);
     text("繼續",327,385);
     text("重新開始",303,485);
+    text("結束",327,585);
   }
 }
 
